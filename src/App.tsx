@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
@@ -22,13 +21,20 @@ import { InvestorsPage } from './pages/investors/InvestorsPage';
 import { EntrepreneursPage } from './pages/entrepreneurs/EntrepreneursPage';
 import { MessagesPage } from './pages/messages/MessagesPage';
 import { NotificationsPage } from './pages/notifications/NotificationsPage';
-import { DocumentsPage } from './pages/documents/DocumentsPage';
-import { SettingsPage } from './pages/settings/SettingsPage';
+
 import { HelpPage } from './pages/help/HelpPage';
 import { DealsPage } from './pages/deals/DealsPage';
-
-// Chat Pages
+import { Schedule } from './pages/calendar/Schedule';
+import { VideoCall } from './pages/videocall/Videocall';
 import { ChatPage } from './pages/chat/ChatPage';
+import { SettingsPage } from './pages/settings/SettingsPage';
+import { DocumentChamber } from './pages/document-chamber/DocumentChamber';
+import { PaymentSection } from './pages/payments/PaymentSection';
+import { SecuritySettings } from './pages/security/SecuritySettings';
+
+
+
+
 
 function App() {
   return (
@@ -68,12 +74,10 @@ function App() {
             <Route index element={<NotificationsPage />} />
           </Route>
           
-          <Route path="/documents" element={<DashboardLayout />}>
-            <Route index element={<DocumentsPage />} />
-          </Route>
+         
           
           <Route path="/settings" element={<DashboardLayout />}>
-            <Route index element={<SettingsPage />} />
+           <Route index element={<SettingsPage />} />
           </Route>
           
           <Route path="/help" element={<DashboardLayout />}>
@@ -89,7 +93,29 @@ function App() {
             <Route index element={<ChatPage />} />
             <Route path=":userId" element={<ChatPage />} />
           </Route>
-          
+
+          {/* Schedule Route */}
+          <Route path="/schedule" element={<DashboardLayout />}>
+            <Route index element={<Schedule />} />
+          </Route>
+
+          {/* Video Call Route - Naya Added */}
+          <Route path="/video-call" element={<DashboardLayout />}>
+            <Route index element={<VideoCall />} />
+          </Route>
+<Route path="/documents" element={<DashboardLayout />}>
+  <Route index element={<DocumentChamber />} />
+</Route>
+<Route path="/payments" element={<DashboardLayout />}>
+  <Route index element={<PaymentSection />} />
+</Route>
+  <Route path="/security" element={<DashboardLayout />}>
+            <Route index element={<SecuritySettings />} />
+          </Route>
+
+
+
+
           {/* Redirect root to login */}
           <Route path="/" element={<Navigate to="/login" replace />} />
           
