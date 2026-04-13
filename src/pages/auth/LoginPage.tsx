@@ -74,7 +74,7 @@ export const LoginPage: React.FC = () => {
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                I am a
+                I am Sawaira Ruman👋
               </label>
               <div className="grid grid-cols-2 gap-3">
                 <button
